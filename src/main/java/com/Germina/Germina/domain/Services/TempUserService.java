@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class TempUserServices {
+public class TempUserService {
 
     @Autowired
     private TempUserRepository tempUserRepository;

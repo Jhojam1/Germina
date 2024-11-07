@@ -15,7 +15,7 @@ import java.sql.Date;
 @NoArgsConstructor
 public class OrderDTO {
 
-    private int id;
+    private Long id;
     private User user;
     private Menu menu;
     private Date fechaPedido;

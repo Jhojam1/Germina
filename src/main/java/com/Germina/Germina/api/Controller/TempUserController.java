@@ -1,7 +1,7 @@
 package com.Germina.Germina.api.Controller;
 
 import com.Germina.Germina.domain.Dtos.TempUserDTO;
-import com.Germina.Germina.domain.Services.TempUserServices;
+import com.Germina.Germina.domain.Services.TempUserService;
 import com.Germina.Germina.domain.common.Routes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class TempUserController {
 
     @Autowired
-    private TempUserServices tempUserServices;
+    private TempUserService tempUserServices;
 
     @PostMapping(value = Routes.TempUser.saveTempUser )
     public TempUserDTO save(@RequestBody TempUserDTO tempUserDTO) {
