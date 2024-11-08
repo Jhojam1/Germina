@@ -17,13 +17,13 @@ import java.sql.Date;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @OneToOne
     private User user;
 
     @OneToOne
-    private Menu menu;
+    private Dish dish;
 
     @Column(name = "Fecha_Pedido")
     private Date fechaPedido;

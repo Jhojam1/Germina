@@ -9,7 +9,7 @@ public class OrderMapper {
         Order order = new Order();
         order.setId(orderDTO.getId());
         order.setUser(orderDTO.getUser());
-        order.setMenu(orderDTO.getMenu());
+        order.setDish(orderDTO.getDish());
         order.setFechaPedido(orderDTO.getFechaPedido());
         return order;
     }
@@ -18,7 +18,7 @@ public class OrderMapper {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setId(order.getId());
         orderDTO.setUser(order.getUser());
-        orderDTO.setMenu(order.getMenu());
+        orderDTO.setDish(order.getDish());
         orderDTO.setFechaPedido(order.getFechaPedido());
         return orderDTO;
     }

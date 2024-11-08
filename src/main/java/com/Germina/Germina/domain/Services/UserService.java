@@ -17,19 +17,33 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Obtener todos los Usuarios.
+     */
     public List<UserDTO> getAll() {
-        return userRepository.findAll().stream().map(UserMapper::toDto).collect(Collectors.toList());
+        return userRepository.findAll().stream()
+                .map(UserMapper::toDto)
+                .collect(Collectors.toList());
     }
 
+    /**
+     * Guardar o actualizar un Usuario.
+     */
     public UserDTO save(UserDTO userDTO) {
-        userRepository.save(UserMapper.toEntity(userDTO));
+        User user = UserMapper.toEntity(userDTO);
+        userRepository.save(user);
         return userDTO;
     }
 
+
+    /**
+     * Actualiza El Estado Y Nombre De un Usuario.
+     */
     public UserDTO upda(UserDTO userDTO) {
         Optional<User> existingUserOptional = userRepository.findById(userDTO.getId());
         if (existingUserOptional.isPresent()) {
             User existingUser = existingUserOptional.get();
+            existingUser.setFullName(userDTO.getFullName());
             existingUser.setState(userDTO.getState());
             userRepository.save(existingUser);
             return userDTO;
