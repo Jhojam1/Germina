@@ -1,6 +1,8 @@
 package com.Germina.Germina.domain.Services;
 
+import com.Germina.Germina.domain.Dtos.DishDTO;
 import com.Germina.Germina.domain.Dtos.UserDTO;
+import com.Germina.Germina.domain.Mapper.DishMapper;
 import com.Germina.Germina.domain.Mapper.UserMapper;
 import com.Germina.Germina.persistence.entities.User;
 import com.Germina.Germina.persistence.repositories.UserRepository;
@@ -51,6 +53,10 @@ public class UserService {
             userRepository.save(UserMapper.toEntity(userDTO));
             return userDTO;
         }
+    }
+
+    public Optional<UserDTO> findById(Long id) {
+        return userRepository.findById(id).map(UserMapper::toDto);
     }
 
 }

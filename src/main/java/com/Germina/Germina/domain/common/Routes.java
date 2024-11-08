@@ -22,4 +22,17 @@ public class Routes {
         public static final String updateDish = "uptDish";
         public static final String inactivateDish = "inctDish";
     }
+
+    public static class User{
+        public static final String User = "User";
+        public static final String getUser = "getUser";
+        public static final String saveUser = "saveUser";
+        public static final String updateUser = "updateUser";
+    }
+
+    public static class Order{
+        public static final String Order = "Order";
+        public static final String getOrder = "getOrder";
+        public static final String saveOrder = "saveOrder";
+    }
 }
