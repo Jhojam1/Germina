@@ -43,6 +43,7 @@ public class DishService {
         Optional<Dish> existingDishOptional = dishRepository.findById(dishDTO.getId());
         if (existingDishOptional.isPresent()) {
             Dish existingDish = existingDishOptional.get();
+            existingDish.setName(dishDTO.getName());
             existingDish.setPrice(dishDTO.getPrice());
             existingDish.setAmount(dishDTO.getAmount());
             existingDish.setDescription(dishDTO.getDescription());
@@ -81,5 +82,9 @@ public class DishService {
         } else {
             throw new IllegalArgumentException("Plato no encontrado.");
         }
+    }
+
+    public Optional<DishDTO> findById(Long id) {
+        return dishRepository.findById(id).map(DishMapper::toDto);
     }
 }

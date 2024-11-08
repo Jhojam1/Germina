@@ -17,12 +17,12 @@ public class ConfigHrService {
     private static final String CUTOFF_TIME_KEY = "order.cutoff-time";
 
     public LocalTime getCutoffTime() {
-        Optional<ConfigHr> cutoffTimeConfig = configHrRepository.findByKey(CUTOFF_TIME_KEY);
+        Optional<ConfigHr> cutoffTimeConfig = configHrRepository.findById(CUTOFF_TIME_KEY);
         return cutoffTimeConfig.map(config -> LocalTime.parse(config.getValue())).orElse(LocalTime.of(11, 0)); // Valor por defecto 11:00 si no existe en la base de datos
     }
 
     public void updateCutoffTime(String newTime) {
-        ConfigHr cutoffTimeConfig = configHrRepository.findByKey(CUTOFF_TIME_KEY)
+        ConfigHr cutoffTimeConfig = configHrRepository.findById(CUTOFF_TIME_KEY)
                 .orElse(new ConfigHr(CUTOFF_TIME_KEY, newTime));
         cutoffTimeConfig.setValue(newTime);
         configHrRepository.save(cutoffTimeConfig);

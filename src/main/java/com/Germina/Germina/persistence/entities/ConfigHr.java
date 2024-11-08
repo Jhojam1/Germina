@@ -13,7 +13,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ConfigHr {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     @Column(name = "Hora")
